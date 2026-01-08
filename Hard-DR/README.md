@@ -88,3 +88,9 @@ Supports:
 - Optional ensemble bands for observable curves
 
 Outputs written to:
+<VERSION_DIR>/eval_hard_dr/<TAG>/
+From the repository root:
+
+### To run, first run generator then training then evaluation:
+```bash
+python3 generator.py
