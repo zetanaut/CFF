@@ -1,4 +1,4 @@
-# CFF/basic — fixed-kinematics closure example (XS + BSA → ReH, ImH)
+# Basic fixed-kinematics closure example (XS + BSA → ReH, ImH)
 
 This folder contains a minimal *closure test* pipeline that demonstrates how to extract the
 DVCS Compton Form Factor **H** at a **single fixed kinematic point** by fitting the full
