@@ -47,3 +47,46 @@ fitting both XS(ϕ) and BSA(ϕ) simultaneously.
 **“Soft chi²” loss (important)**
 This script is designed to behave well even if `XS_err = BSA_err = 0` in the dataset.
 It builds *softened* per-point sigmas for weighting:
+sigma_soft = sqrt( sigma_data^2 + (rel_floor * scale)^2 + abs_floor^2 )
+So when the dataset has zero errors, the optimization still behaves like a reasonable
+moderate-error fit (instead of becoming ill-conditioned).
+
+You can also ignore the dataset-provided pointwise errors entirely by setting:
+- `USE_POINTWISE_SIGMAS = False`
+
+**Outputs**
+- `<VERSION_DIR>/replicas/replica_XXX_<TAG>.keras`
+- `<VERSION_DIR>/histories/history_replica_XXX_<TAG>.json`
+
+> Configure `VERSION_DIR`, `TAG`, training hyperparameters, and the nuisance CFF choices
+> in the USER CONFIG block.
+
+---
+
+### 3) `closure_evaluate.py` — summarize replicas + make plots
+Loads the trained replica models and produces:
+
+- histograms of extracted **ReH** and **ImH** across replicas (with the truth line)
+- pseudodata plots of **XS(ϕ)** and **BSA(ϕ)** with:
+  - the **ensemble-mean inferred curve**
+  - optional ±1σ band by propagating each replica through `bkm10_lib`
+  - optional truth curve overlay
+
+**Notes**
+- Reads truth only for plotting and bias checks; it does not affect training.
+- If `ReH_std_over_phi` or `ImH_std_over_phi` are not near zero, it indicates your model is
+  leaking ϕ dependence into the CFF prediction (the script warns about this).
+
+**Outputs**
+- `<VERSION_DIR>/eval/*.png` and a CSV of per-replica CFFs
+
+---
+
+## Quickstart
+
+From the repo root (or wherever these scripts can import `bkm10_lib` and `gepard`):
+
+### Step 1 — generate a dataset
+```bash
+python CFF/basic/closure_generate_dataset.py
+
