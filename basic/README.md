@@ -86,7 +86,8 @@ Loads the trained replica models and produces:
 
 From the repo root (or wherever these scripts can import `bkm10_lib` and `gepard`):
 
-### Step 1 — generate a dataset
+### Run scripts
+Start wit the generate scrpt, then train, then evaluate
 ```bash
-python CFF/basic/closure_generate_dataset.py
+python3 closure_generate_dataset.py
 
