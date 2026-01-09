@@ -1,5 +1,12 @@
 # Hard Dispersion Relation CFF extraction example
 
+You will need TensorFlow, and the BMK library that is compatible with TensorFlow
+which you can get by doing
+```bash
+pip install bkm10.
+
+If want to use the Gepard you can look here: https://github.com/kkumer/gepard
+
 This directory contains a **closure-test pipeline** demonstrating a *Hard Dispersion
 Relation (Hard-DR)* extraction of the DVCS Compton Form Factor **H** using only:
 
