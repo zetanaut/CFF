@@ -21,9 +21,9 @@ Truth CFFs:
   - Fallback: smooth toy truth
 
 Outputs:
-  version_8/data/dataset_<TAG>.npz
-  version_8/data/dataset_<TAG>.csv
-  version_8/data/truth_<TAG>.json
+  output/data/dataset_<TAG>.npz
+  output/data/dataset_<TAG>.csv
+  output/data/truth_<TAG>.json
 """
 
 import json
