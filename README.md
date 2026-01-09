@@ -27,6 +27,13 @@ Researchers familiar with DVCS phenomenology and CFF extraction who want
 concrete, minimal examples of how modern ML-based inference techniques can be
 implemented in practice.
 
+You will need TensorFlow, and the BMK library that is compatible with TensorFlow
+which you can get by doing
+```bash
+pip install bmk10
+```
+If want to use the Gepard you can look here: https://github.com/kkumer/gepard
+
 ## Status
 
 Active development.  
